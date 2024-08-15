@@ -30,13 +30,6 @@
         }
         .project, .writing {
             margin-bottom: 20px;
-            padding: 10px;
-            border-radius: 5px;
-            background-color: rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        .project:hover, .writing:hover {
-            transform: translateY(-5px);
         }
         .connect-icons {
             display: flex;
@@ -54,15 +47,12 @@
         }
         #profile-photo {
             width: 100%;
-            max-width: 300px;
+            max-width: 600px;
             height: auto;
             display: block;
             margin: 20px auto;
-            border-radius: 50%;
-            transition: transform 0.3s;
-        }
-        #profile-photo:hover {
-            transform: scale(1.05);
+            object-fit: cover;
+            aspect-ratio: 16 / 9;
         }
         #theme-toggle {
             position: fixed;
@@ -79,6 +69,14 @@
             right: 20px;
             font-size: 14px;
             text-align: right;
+        }
+        a {
+            color: var(--text-color);
+            text-decoration: none;
+            border-bottom: 1px dotted var(--text-color);
+        }
+        a:hover {
+            border-bottom: 1px solid var(--text-color);
         }
         @media (max-width: 600px) {
             body {
