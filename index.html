@@ -4,32 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tushaar Mehtaa - Personal Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #1a1a1a;
             --text-color: #e0e0e0;
             --link-color: #4a9eff;
             --heading-color: #ffffff;
+            --header-bg: #0f0f0f;
         }
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            padding-top: 60px; /* Account for fixed header */
+        }
+        .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            transition: background-color 0.3s, color 0.3s;
         }
         .light-mode {
             --bg-color: #f5f5f5;
             --text-color: #333333;
             --link-color: #0066cc;
             --heading-color: #1a1a1a;
+            --header-bg: #e0e0e0;
         }
         h1, h2, h3 {
             color: var(--heading-color);
+            font-weight: 700;
         }
         h1, h2 {
             border-bottom: 1px solid var(--heading-color);
@@ -61,41 +68,48 @@
             object-fit: cover;
             aspect-ratio: 16 / 9;
         }
-        #theme-toggle {
+        .fixed-header {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background-color: var(--header-bg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 1000;
+        }
+        #theme-toggle {
             background: none;
             border: none;
             font-size: 24px;
             cursor: pointer;
+            color: var(--text-color);
         }
         #weather-widget {
-            position: fixed;
-            top: 60px;
-            right: 20px;
             font-size: 14px;
-            text-align: right;
         }
         a {
             color: var(--link-color);
             text-decoration: none;
-            border-bottom: 1px dotted var(--link-color);
+            border-bottom: 1px solid var(--link-color);
             font-weight: 500;
         }
         a:hover {
-            border-bottom: 1px solid var(--link-color);
+            opacity: 0.8;
         }
         .project h3 a, .writing h3 a {
-            color: var(--heading-color);
+            color: var(--link-color);
             border-bottom: none;
             font-weight: 700;
         }
         .project h3 a:hover, .writing h3 a:hover {
-            color: var(--link-color);
+            border-bottom: 1px solid var(--link-color);
         }
         @media (max-width: 600px) {
-            body {
+            .container {
                 padding: 10px;
             }
             .connect-icons {
@@ -108,80 +122,85 @@
     </style>
 </head>
 <body>
-    <button id="theme-toggle">☀️</button>
-    <div id="weather-widget"></div>
+    <div class="fixed-header">
+        <div id="weather-widget"></div>
+        <button id="theme-toggle">☀️</button>
+    </div>
 
-    <header>
-        <h1>Tushaar Mehtaa</h1>
-        <img id="profile-photo" src="https://raw.githubusercontent.com/tushaarmehtaa/tushaarmehtaa/b0bbf06c86c8ca7f440084e620aa191ea48f5021/IMG%208532%202.jpg" alt="Tushaar Mehtaa">
-        <p>Hello, this is some of the stuff I keep on the Internet. Here you can find almost everything about me, things I've done, things I'm doing, things I want to do and things I'm really obsessed with.</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1>Tushaar Mehtaa</h1>
+            <img id="profile-photo" src="https://raw.githubusercontent.com/tushaarmehtaa/tushaarmehtaa/b0bbf06c86c8ca7f440084e620aa191ea48f5021/IMG%208532%202.jpg" alt="Tushaar Mehtaa">
+            <p>Hello, this is some of the stuff I keep on the Internet. Here you can find almost everything about me, things I've done, things I'm doing, things I want to do and things I'm really obsessed with.</p>
+        </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <ul>
-            <li>I am a 23 year young (yes, I turned 23 just <span id="days-since-birthday"></span> days back) writer and marketer living in Bangalore. I write content for brands and entrepreneurs.</li>
-            <li>I've been lucky enough to work with some amazing folks since I started out, including <a href="https://x.com/AyushkWadhwa">Ayush Wadhwa</a>, <a href="https://x.com/paraschopra">Paras Chopra</a>, <a href="https://x.com/Saxenasaheb">Saumya Saxena</a>, and so many more founders I really admire.</li>
-            <li>Speaking of numbers, I've done millions of impressions across platforms and content types, whether <a href="https://www.instagram.com/builders.central/">reels</a>, <a href="https://x.com/tushaarmehtaa/status/1765270035721822483">tweets</a>, or <a href="https://www.linkedin.com/posts/karthiksridharan1_startup-activity-7212686224094810112-fMZP?utm_source=share&utm_medium=member_desktop">posts</a>.</li>
-            <li>Currently, I am playing around with Generative AI (not the whole AI - not that technical at the moment) - have been working on a couple of ideas.</li>
-        </ul>
-    </section>
+        <section id="about">
+            <h2>About Me</h2>
+            <ul>
+                <li>I am a 23 year young (yes, I turned 23 just <span id="days-since-birthday"></span> days back) writer and marketer living in Bangalore. I write content for brands and entrepreneurs.</li>
+                <li>I've been lucky enough to work with some amazing folks since I started out, including <a href="https://x.com/AyushkWadhwa">Ayush Wadhwa</a>, <a href="https://x.com/paraschopra">Paras Chopra</a>, <a href="https://x.com/Saxenasaheb">Saumya Saxena</a>, and so many more founders I really admire.</li>
+                <li>Speaking of numbers, I've done millions of impressions across platforms and content types, whether <a href="https://www.instagram.com/builders.central/">reels</a>, <a href="https://x.com/tushaarmehtaa/status/1765270035721822483">tweets</a>, or <a href="https://www.linkedin.com/posts/karthiksridharan1_startup-activity-7212686224094810112-fMZP?utm_source=share&utm_medium=member_desktop">posts</a>.</li>
+                <li>Currently, I am playing around with Generative AI (not the whole AI - not that technical at the moment) - have been working on a couple of ideas.</li>
+            </ul>
+        </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3><a href="https://jimbro.framer.ai/">JimBro</a></h3>
-            <p>Name sounds funny, but I'm trying to make it easier than ever to log workouts using voice and AI.</p>
-        </div>
-        <div class="project">
-            <h3>Internal tools-as-a-service</h3>
-            <p>Think dashboard, think smallest GPT wrappers that allow most mundane tasks to be handled by technology rather than humans, built for internal corporate use.</p>
-        </div>
-        <div class="project">
-            <h3><a href="https://x.com/podcastdecoded_">Podcast Decoded</a></h3>
-            <p>Did this with my brother a while back - where we listened to podcasts and shared notes - so you don't have to.</p>
-        </div>
-        <div class="project">
-            <h3><a href="https://x.com/FlowwMedia">Floww Media</a></h3>
-            <p>Did this with two of my brothers - to make exceptional thumbnails for YouTubers - got some clients from India, Korea and the States - couldn't keep up with a job.</p>
-        </div>
-    </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3><a href="https://jimbro.framer.ai/">JimBro</a></h3>
+                <p>Name sounds funny, but I'm trying to make it easier than ever to log workouts using voice and AI.</p>
+            </div>
+            <div class="project">
+                <h3>Internal tools-as-a-service</h3>
+                <p>Think dashboard, think smallest GPT wrappers that allow most mundane tasks to be handled by technology rather than humans, built for internal corporate use.</p>
+            </div>
+            <div class="project">
+                <h3><a href="https://x.com/podcastdecoded_">Podcast Decoded</a></h3>
+                <p>Did this with my brother a while back - where we listened to podcasts and shared notes - so you don't have to.</p>
+            </div>
+            <div class="project">
+                <h3><a href="https://x.com/FlowwMedia">Floww Media</a></h3>
+                <p>Did this with two of my brothers - to make exceptional thumbnails for YouTubers - got some clients from India, Korea and the States - couldn't keep up with a job.</p>
+            </div>
+        </section>
 
-    <section id="writings">
-        <h2>Writings</h2>
-        <div class="writing">
-            <h3><a href="https://tushaarmehtaa.bearblog.dev/your-day-job/">Your Day Job is Useless</a></h3>
-            <p>"I'm just doing this to learn, then I'm going to start my own thing." If I had a dollar for every time I heard that, I'd never need to work again.</p>
-        </div>
-        <div class="writing">
-            <h3><a href="https://tushaarmehtaa.bearblog.dev/making-great-things/">Make Laziness Enablers</a></h3>
-            <p>I'm obsessed with laziness right now. Not my own (though my family might disagree). I'm talking about your laziness. The user's laziness.</p>
-        </div>
-        <div class="writing">
-            <h3><a href="https://tushaarmehtaa.bearblog.dev/people-on-twitter/">People on Twitter</a></h3>
-            <p>People on Twitter. They don't appreciate actionable advice. They don't value the small, daily steps they can take to reach their goals. Why? Because that takes effort.</p>
-        </div>
-        <div class="writing">
-            <h3><a href="https://tushaarmehtaa.bearblog.dev/specialization-is-overrated/">Specialization is overrated</a></h3>
-            <p>"Specialization is for insects." When I first read this quote by Naval 3 years back, it really resonated with me. And I thought, why not?</p>
-        </div>
-        <p><a href="https://tushaarmehtaa.bearblog.dev/blog/">Read more here</a></p>
-    </section>
+        <section id="writings">
+            <h2>Writings</h2>
+            <div class="writing">
+                <h3><a href="https://tushaarmehtaa.bearblog.dev/your-day-job/">Your Day Job is Useless</a></h3>
+                <p>"I'm just doing this to learn, then I'm going to start my own thing." If I had a dollar for every time I heard that, I'd never need to work again.</p>
+            </div>
+            <div class="writing">
+                <h3><a href="https://tushaarmehtaa.bearblog.dev/making-great-things/">Make Laziness Enablers</a></h3>
+                <p>I'm obsessed with laziness right now. Not my own (though my family might disagree). I'm talking about your laziness. The user's laziness.</p>
+            </div>
+            <div class="writing">
+                <h3><a href="https://tushaarmehtaa.bearblog.dev/people-on-twitter/">People on Twitter</a></h3>
+                <p>People on Twitter. They don't appreciate actionable advice. They don't value the small, daily steps they can take to reach their goals. Why? Because that takes effort.</p>
+            </div>
+            <div class="writing">
+                <h3><a href="https://tushaarmehtaa.bearblog.dev/specialization-is-overrated/">Specialization is overrated</a></h3>
+                <p>"Specialization is for insects." When I first read this quote by Naval 3 years back, it really resonated with me. And I thought, why not?</p>
+            </div>
+            <p><a href="https://tushaarmehtaa.bearblog.dev/blog/">Read more here</a></p>
+        </section>
 
-    <section id="connect">
-        <h2>Connect</h2>
-        <div class="connect-icons">
-            <a href="mailto:tusharmehta2001@icloud.com" title="Email">✉️</a>
-            <a href="https://x.com/tushaarmehtaa" title="Twitter">🐦</a>
-            <a href="#" title="LinkedIn">💼</a>
-            <a href="#" title="Portfolio">🌐</a>
-            <a href="#" title="Calendly">📅</a>
-        </div>
-    </section>
+        <section id="connect">
+            <h2>Connect</h2>
+            <div class="connect-icons">
+                <a href="mailto:tusharmehta2001@icloud.com" title="Email">✉️</a>
+                <a href="https://x.com/tushaarmehtaa" title="Twitter">🐦</a>
+                <a href="#" title="LinkedIn">💼</a>
+                <a href="#" title="Portfolio">🌐</a>
+                <a href="#" title="Calendly">📅</a>
+                <a href="https://github.com/tushaarmehtaa" title="GitHub">👨‍💻</a>
+            </div>
+        </section>
 
-    <footer>
-        <p>© 2024 Tushaar Mehtaa. All rights reserved.</p>
-    </footer>
+        <footer>
+            <p>© 2024 Tushaar Mehtaa. All rights reserved.</p>
+        </footer>
+    </div>
 
     <script>
         const themeToggle = document.getElementById('theme-toggle');
