@@ -6,20 +6,37 @@
     <title>Tushaar Mehtaa - Personal Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #f0f0f0;
+            --text-color: #333;
+        }
         body {
             font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--text-color);
+            background-color: var(--bg-color);
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            --bg-color: #333;
+            --text-color: #f0f0f0;
         }
         h1, h2 {
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid var(--text-color);
             padding-bottom: 10px;
         }
         .project, .writing {
             margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        .project:hover, .writing:hover {
+            transform: translateY(-5px);
         }
         .connect-icons {
             display: flex;
@@ -28,8 +45,12 @@
         }
         .connect-icons a {
             text-decoration: none;
-            color: #333;
+            color: var(--text-color);
             font-size: 24px;
+            transition: transform 0.3s;
+        }
+        .connect-icons a:hover {
+            transform: scale(1.1);
         }
         #profile-photo {
             width: 100%;
@@ -37,10 +58,45 @@
             height: auto;
             display: block;
             margin: 20px auto;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        #profile-photo:hover {
+            transform: scale(1.05);
+        }
+        #theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        #weather-widget {
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            font-size: 14px;
+            text-align: right;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .connect-icons {
+                flex-wrap: wrap;
+            }
+            .connect-icons a {
+                margin: 10px;
+            }
         }
     </style>
 </head>
 <body>
+    <button id="theme-toggle">🌓</button>
+    <div id="weather-widget"></div>
+
     <header>
         <h1>Tushaar Mehtaa</h1>
         <img id="profile-photo" src="https://raw.githubusercontent.com/tushaarmehtaa/tushaarmehtaa/b0bbf06c86c8ca7f440084e620aa191ea48f5021/IMG%208532%202.jpg" alt="Tushaar Mehtaa">
@@ -50,7 +106,7 @@
     <section id="about">
         <h2>About Me</h2>
         <ul>
-            <li>I'm a simple writer - yes, that's a thing. I just write, and my North Star is clarity of thought.</li>
+            <li>I am a 23 year young (yes, I turned 23 just <span id="days-since-birthday"></span> days back) writer and marketer living in Bangalore. I write content for brands and entrepreneurs.</li>
             <li>I've been lucky enough to work with some amazing folks since I started out, including <a href="https://x.com/AyushkWadhwa">Ayush Wadhwa</a>, <a href="https://x.com/paraschopra">Paras Chopra</a>, <a href="https://x.com/Saxenasaheb">Saumya Saxena</a>, and so many more founders I really admire.</li>
             <li>Speaking of numbers, I've done millions of impressions across platforms and content types, whether <a href="https://www.instagram.com/builders.central/">reels</a>, <a href="https://x.com/tushaarmehtaa/status/1765270035721822483">tweets</a>, or <a href="https://www.linkedin.com/posts/karthiksridharan1_startup-activity-7212686224094810112-fMZP?utm_source=share&utm_medium=member_desktop">posts</a>.</li>
             <li>Currently, I am playing around with Generative AI (not the whole AI - not that technical at the moment) - have been working on a couple of ideas.</li>
@@ -112,5 +168,59 @@
     <footer>
         <p>© 2024 Tushaar Mehtaa. All rights reserved.</p>
     </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const weatherWidget = document.getElementById('weather-widget');
+        const daysSinceBirthday = document.getElementById('days-since-birthday');
+
+        // Theme toggle
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            themeToggle.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌓';
+        });
+
+        // Weather widget
+        function getWeather() {
+            fetch('https://wttr.in/Bangalore?format=%t+%C')
+                .then(response => response.text())
+                .then(data => {
+                    weatherWidget.textContent = `${data.trim()} in Bangalore`;
+                })
+                .catch(error => {
+                    console.error('Error fetching weather:', error);
+                    weatherWidget.textContent = 'Weather data unavailable';
+                });
+        }
+
+        // Calculate days since birthday
+        function updateDaysSinceBirthday() {
+            const birthday = new Date('2000-07-28'); // Your birthday (July 28)
+            const today = new Date();
+            const lastBirthday = new Date(today.getFullYear(), birthday.getMonth(), birthday.getDate());
+            if (lastBirthday > today) {
+                lastBirthday.setFullYear(lastBirthday.getFullYear() - 1);
+            }
+            const days = Math.floor((today - lastBirthday) / (1000 * 60 * 60 * 24));
+            daysSinceBirthday.textContent = days;
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Initialize
+        getWeather();
+        updateDaysSinceBirthday();
+        setInterval(getWeather, 600000); // Update weather every 10 minutes
+        setInterval(updateDaysSinceBirthday, 86400000); // Update days since birthday daily
+    </script>
 </body>
 </html>
