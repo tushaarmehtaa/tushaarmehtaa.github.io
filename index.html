@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tushaar Mehtaa - Personal Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #f0f0f0;
-            --text-color: #333;
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --link-color: #4a9eff;
+            --heading-color: #ffffff;
         }
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
@@ -20,16 +22,21 @@
             padding: 20px;
             transition: background-color 0.3s, color 0.3s;
         }
-        .dark-mode {
-            --bg-color: #333;
-            --text-color: #f0f0f0;
+        .light-mode {
+            --bg-color: #f5f5f5;
+            --text-color: #333333;
+            --link-color: #0066cc;
+            --heading-color: #1a1a1a;
+        }
+        h1, h2, h3 {
+            color: var(--heading-color);
         }
         h1, h2 {
-            border-bottom: 1px solid var(--text-color);
+            border-bottom: 1px solid var(--heading-color);
             padding-bottom: 10px;
         }
         .project, .writing {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         .connect-icons {
             display: flex;
@@ -38,7 +45,7 @@
         }
         .connect-icons a {
             text-decoration: none;
-            color: var(--text-color);
+            color: var(--link-color);
             font-size: 24px;
             transition: transform 0.3s;
         }
@@ -71,12 +78,21 @@
             text-align: right;
         }
         a {
-            color: var(--text-color);
+            color: var(--link-color);
             text-decoration: none;
-            border-bottom: 1px dotted var(--text-color);
+            border-bottom: 1px dotted var(--link-color);
+            font-weight: 500;
         }
         a:hover {
-            border-bottom: 1px solid var(--text-color);
+            border-bottom: 1px solid var(--link-color);
+        }
+        .project h3 a, .writing h3 a {
+            color: var(--heading-color);
+            border-bottom: none;
+            font-weight: 700;
+        }
+        .project h3 a:hover, .writing h3 a:hover {
+            color: var(--link-color);
         }
         @media (max-width: 600px) {
             body {
@@ -92,7 +108,7 @@
     </style>
 </head>
 <body>
-    <button id="theme-toggle">🌓</button>
+    <button id="theme-toggle">☀️</button>
     <div id="weather-widget"></div>
 
     <header>
@@ -175,8 +191,8 @@
 
         // Theme toggle
         themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-mode');
-            themeToggle.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌓';
+            body.classList.toggle('light-mode');
+            themeToggle.textContent = body.classList.contains('light-mode') ? '🌙' : '☀️';
         });
 
         // Weather widget
