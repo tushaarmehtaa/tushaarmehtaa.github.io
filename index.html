@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tushaar Mehtaa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mooli&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #ffffff;
@@ -12,9 +12,11 @@
             --secondary-text-color: #666666;
             --link-color: #0000FF;
             --link-hover-color: #0000AA;
+            --line-color: #cccccc;
+            --line-hover-color: #999999;
         }
         body {
-            font-family: 'Roboto Mono', monospace;
+            font-family: 'Mooli', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
@@ -53,7 +55,11 @@
         .project, .writing {
             margin-bottom: 30px;
             padding-left: 20px;
-            border-left: 2px solid var(--secondary-text-color);
+            border-left: 2px solid var(--line-color);
+            transition: border-left-color 0.3s;
+        }
+        .project:hover, .writing:hover {
+            border-left-color: var(--line-hover-color);
         }
         .project h3, .writing h3 {
             font-size: 14px;
@@ -66,11 +72,14 @@
             color: var(--secondary-text-color);
         }
         a {
-            color: var(--link-color);
+            color: inherit;
             text-decoration: none;
         }
         a:hover {
             text-decoration: underline;
+        }
+        a.company-link {
+            color: var(--link-color);
         }
         .toggle-container {
             display: flex;
@@ -85,7 +94,7 @@
             font-size: 14px;
             margin-right: 20px;
             padding: 0;
-            font-family: 'Roboto Mono', monospace;
+            font-family: 'Mooli', sans-serif;
         }
         .toggle-btn.active {
             font-weight: 700;
@@ -155,7 +164,7 @@
         <p>writing content for brands and entrepreneurs, exploring generative ai</p>
 
         <h2>previously</h2>
-        <p><a href="https://wingify.com/">wingify</a>, <a href="https://nintee.com/">nintee</a>, <a href="https://www.dezerv.in/">dezerv</a>, <a href="https://seekify.com/">seekify</a>, <a href="https://www.segmind.com/">segmind</a>, <a href="https://www.owledmedia.com/">owled</a></p>
+        <p><a class="company-link" href="https://wingify.com/">wingify</a>, <a class="company-link" href="https://nintee.com/">nintee</a>, <a class="company-link" href="https://www.dezerv.in/">dezerv</a>, <a class="company-link" href="https://seekify.com/">seekify</a>, <a class="company-link" href="https://www.segmind.com/">segmind</a>, <a class="company-link" href="https://www.owledmedia.com/">owled</a></p>
 
         <h2 class="italic">a little story:</h2>
         <p>i started writing online over 3 years ago and have been fortunate enough to work with some exceptional founders like ayush wadhwa, paras chopra, saumya saxena, and many more.</p>
@@ -169,28 +178,28 @@
         <div id="main-quests" class="quest-section active">
             <div class="year">2024</div>
             <div class="project">
-                <div class="project-title"><a href="https://flexiple.com">socials @flexiple</a></div>
+                <div class="project-title">socials <a class="company-link" href="https://flexiple.com">@flexiple</a></div>
                 <p>writing content for founder accounts and scriptwriting for videos</p>
             </div>
 
             <div class="year">2023</div>
             <div class="project">
-                <div class="project-title"><a href="https://purplepay.app">marketing & growth @purplepay</a></div>
+                <div class="project-title">marketing & growth <a class="company-link" href="https://purplepay.app">@purplepay</a></div>
                 <p>only marketer in a team of 12, solving for cross-border payments with crypto</p>
             </div>
             <div class="project">
-                <div class="project-title"><a href="https://www.dezerv.in/">content writer @dezerv</a></div>
+                <div class="project-title">content writer <a class="company-link" href="https://www.dezerv.in/">@dezerv</a></div>
                 <p>wrote 60+ seo-optimized blogs for a $100M+ wealth management firm</p>
             </div>
             <div class="project">
-                <div class="project-title"><a href="https://nintee.com/">marketing @nintee</a> (parent company - <a href="https://wingify.com/">wingify</a>)</div>
+                <div class="project-title">marketing <a class="company-link" href="https://nintee.com/">@nintee</a> (parent company - <a class="company-link" href="https://wingify.com/">wingify</a>)</div>
                 <p>worked on a personal development and habit AI coach</p>
                 <p class="italic">(one of the greatest experiences for me as i got introduced to genAI here)</p>
             </div>
 
             <div class="year">2022</div>
             <div class="project">
-                <div class="project-title"><a href="https://www.owledmedia.com/">marketing @owled</a></div>
+                <div class="project-title">marketing <a class="company-link" href="https://www.owledmedia.com/">@owled</a></div>
                 <p>youtube channel management, newsletter writing, short-form distribution execution for various clients</p>
                 <p class="italic">(huge for me personally as everything i learned in marketing started here)</p>
             </div>
@@ -203,74 +212,78 @@
                 <p>helping people with great thoughts write tweets easily with templates and inspiration</p>
             </div>
             <div class="project">
-                <div class="project-title"><a href="https://jimbro.framer.ai/">jimbro</a></div>
+                <div class="project-title"><a class="company-link" href="https://jimbro.framer.ai/">jimbro</a></div>
                 <p>building the easiest way to log workouts and get better at sports</p>
             </div>
             <div class="project">
-                <div class="project-title">zoho creator</div>
+                <div class="project-title"><a class="company-link" href="https://www.instagram.com/builders.central/">zoho creator</a></div>
                 <p>consulting for zoho creator via YaaS media; wrote over 200+ short-form scripts</p>
             </div>
             <div class="project">
-                <div class="project-title"><a href="https://www.dacoit.design/">dacoit design</a></div>
+                <div class="project-title"><a class="company-link" href="https://www.dacoit.design/">dacoit design</a></div>
                 <p>wrote a once-a-year year-in-review for <a href="https://x.com/RahulDesignWeb3">rahul</a>, founder of dacoit design</p>
             </div>
             <div class="project">
-                <div class="project-title">fbi</div>
+                <div class="project-title"><a class="company-link" href="https://0xfbi.com/">fbi</a></div>
                 <p>on-and-off partnership with farcaster builders international for organizing hackathons, meetups, etc.</p>
             </div>
 
             <div class="year">2023</div>
             <div class="project">
-                <div class="project-title">logx</div>
+                <div class="project-title"><a class="company-link" href="https://www.logx.trade/">logx</a></div>
                 <p>wrote multiple twitter threads covering crypto trading and ecosystems logX explored for integration</p>
             </div>
             <div class="project">
-                <div class="project-title">floww media</div>
+                <div class="project-title"><a class="company-link" href="https://x.com/FlowwMedia">floww media</a></div>
                 <p>a services business started with 2 of my brothers to make thumbnails for youtubers - got some clients from india, korea, and the states - then shut it down.</p>
             </div>
 
             <div class="year">2022</div>
             <div class="project">
-                <div class="project-title"><a href="https://seekify.com/">seekify</a></div>
+                <div class="project-title"><a class="company-link" href="https://seekify.com/">seekify</a></div>
                 <p>interned to write social media posts</p>
             </div>
             <div class="project">
-                <div class="project-title"><a href="https://www.segmind.com/">segmind</a></div>
+                <div class="project-title"><a class="company-link" href="https://www.segmind.com/">segmind</a></div>
                 <p>worked as a sales and marketing rep—explored how B2B saas works</p>
             </div>
             <div class="project">
-                <div class="project-title">podcast decoded</div>
+                <div class="project-title"><a class="company-link" href="https://x.com/podcastdecoded_">podcast decoded</a></div>
                 <p>we (me and my brother) listened to podcasts and shared notes - so you don't have to.</p>
             </div>
         </div>
 
         <h2 id="writing">writing</h2>
         <div class="writing">
-            <h3><a href="#">Your Day Job is Useless</a></h3>
+            <h3><a class="company-link" href="https://tushaarmehtaa.bearblog.dev/your-day-job/">Your Day Job is Useless</a></h3>
             <p>"I'm just doing this to learn, then I'm going to start my own thing."</p>
         </div>
         <div class="writing">
-            <h3><a href="#">Make Laziness Enablers</a></h3>
+            <h3><a class="company-link" href="https://tushaarmehtaa.bearblog.dev/making-great-things/">Make Laziness Enablers</a></h3>
             <p>I'm obsessed with laziness right now. Not my own (though my family might disagree)...</p>
         </div>
         <div class="writing">
-            <h3><a href="#">People on Twitter</a></h3>
+            <h3><a class="company-link" href="https://tushaarmehtaa.bearblog.dev/people-on-twitter/">People on Twitter</a></h3>
             <p>People on Twitter. They don't appreciate actionable advice. They don't value the small, daily steps they can take to reach their goals...</p>
         </div>
         <div class="writing">
-            <h3><a href="#">Specialization is overrated</a></h3>
+            <h3><a class="company-link" href="https://tushaarmehtaa.bearblog.dev/specialization-is-overrated/">Specialization is overrated</a></h3>
             <p>"Specialization is for insects." When I first read this quote by Naval 3 years back, it really resonated with me...</p>
         </div>
-        <p><a href="https://tushaarmehtaa.bearblog.dev/blog/">read more here</a></p>
+        <p><a class="company-link" href="https://tushaarmehtaa.bearblog.dev/blog/">read more here</a></p>
     </main>
 
-    <footer id="contact">
-        <p>© 2024 Tushaar Mehtaa</p>
+    <div id="contact" class="project">
+        <p>Feel free to reach out for collaborations, questions, or just to say hi!</p>
         <div class="social-links">
-            <a href="https://github.com/tushaarmehtaa/" title="GitHub"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub"></a>
-            <a href="https://x.com/tushaarmehtaa" title="Twitter"><img src="https://abs.twimg.com/icons/apple-touch-icon-192x192.png" alt="Twitter"></a>
-            <a href="#" title="LinkedIn"><img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" alt="LinkedIn"></a>
+            <a href="mailto:tusharmehta2001@icloud.com" title="Email"><img src="https://cdn-icons-png.flaticon.com/512/561/561188.png" alt="Email"></a>
+            <a href="#" title="GitHub"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub"></a>
+            <a href="#" title="Twitter"><img src="https://abs.twimg.com/icons/apple-touch-icon-192x192.png" alt="Twitter"></a>
         </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Tushaar Mehtaa</p>
     </footer>
 
     <script>
