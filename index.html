@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tushaar Mehtaa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Mooli&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #ffffff;
+            --bg-color: #f5f5f5;
             --text-color: #333333;
             --secondary-text-color: #666666;
             --link-color: #0000FF;
             --link-hover-color: #0000AA;
-            --line-color: #cccccc;
-            --line-hover-color: #999999;
+            --border-color: #cccccc;
+            --border-hover-color: #666666;
         }
         body {
-            font-family: 'Mooli', sans-serif;
+            font-family: 'Josefin Sans', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
             max-width: 650px;
             margin: 0 auto;
             padding: 20px;
-            font-size: 14px;
+            font-size: 16px;
         }
         nav {
             display: flex;
@@ -39,12 +39,12 @@
             color: var(--link-hover-color);
         }
         h1 {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
             margin-bottom: 10px;
         }
         h2 {
-            font-size: 16px;
+            font-size: 20px;
             font-weight: 700;
             margin-top: 40px;
             margin-bottom: 20px;
@@ -52,23 +52,23 @@
         p {
             margin-bottom: 20px;
         }
-        .project, .writing {
+        .project, .writing, .contact-item {
             margin-bottom: 30px;
             padding-left: 20px;
-            border-left: 2px solid var(--line-color);
-            transition: border-left-color 0.3s;
+            border-left: 2px solid var(--border-color);
+            transition: border-color 0.3s;
         }
-        .project:hover, .writing:hover {
-            border-left-color: var(--line-hover-color);
+        .project:hover, .writing:hover, .contact-item:hover {
+            border-left-color: var(--border-hover-color);
         }
         .project h3, .writing h3 {
-            font-size: 14px;
+            font-size: 18px;
             font-weight: 700;
             margin-bottom: 5px;
         }
         footer {
             margin-top: 60px;
-            font-size: 12px;
+            font-size: 14px;
             color: var(--secondary-text-color);
         }
         a {
@@ -78,7 +78,7 @@
         a:hover {
             text-decoration: underline;
         }
-        a.company-link {
+        a.link {
             color: var(--link-color);
         }
         .toggle-container {
@@ -91,10 +91,10 @@
             border: none;
             color: var(--text-color);
             cursor: pointer;
-            font-size: 14px;
+            font-size: 16px;
             margin-right: 20px;
             padding: 0;
-            font-family: 'Mooli', sans-serif;
+            font-family: 'Josefin Sans', sans-serif;
         }
         .toggle-btn.active {
             font-weight: 700;
@@ -134,7 +134,7 @@
         }
         .project-link {
             color: var(--secondary-text-color);
-            font-size: 12px;
+            font-size: 14px;
         }
         .italic {
             font-style: italic;
@@ -145,172 +145,192 @@
             object-fit: cover;
             margin-bottom: 20px;
         }
+        #main-quests:hover, #side-quests:hover {
+            cursor: pointer;
+        }
+        #main-quests:hover {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>✨</text></svg>") 16 0, auto;
+        }
+        #side-quests:hover {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🪄</text></svg>") 16 0, auto;
+        }
+      
+      
+.social-links {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+}
+
+.social-links a {
+    margin-right: 20px;
+    font-size: 24px;
+    text-decoration: none;
+}
     </style>
 </head>
 <body>
     <nav>
-        <a href="#home">home</a>
-        <a href="#quests">quests</a>
-        <a href="#writing">writing</a>
-        <a href="#contact">contact</a>
+        <a href="#home">Home</a>
+        <a href="#quests">Quests</a>
+        <a href="#writing">Writing</a>
+        <a href="#contact">Contact</a>
     </nav>
 
     <main id="home">
-        <h1>tushaar mehtaa</h1>
+        <h1>Tushaar Mehtaa</h1>
         <img id="profile-photo" src="https://raw.githubusercontent.com/tushaarmehtaa/tushaarmehtaa/b0bbf06c86c8ca7f440084e620aa191ea48f5021/IMG%208532%202.jpg" alt="Tushaar Mehtaa">
-        <p>hello hello, this is tushaar, and welcome to my corner of the internet.</p>
+        <p>Hello hello, this is Tushaar, and welcome to my corner of the internet.</p>
 
-        <h2>now</h2>
-        <p>writing content for brands and entrepreneurs, exploring generative ai</p>
+        <h2>Now</h2>
+        <p>Writing content for brands and entrepreneurs, exploring generative AI.</p>
 
-        <h2>previously</h2>
-        <p><a class="company-link" href="https://wingify.com/">wingify</a>, <a class="company-link" href="https://nintee.com/">nintee</a>, <a class="company-link" href="https://www.dezerv.in/">dezerv</a>, <a class="company-link" href="https://seekify.com/">seekify</a>, <a class="company-link" href="https://www.segmind.com/">segmind</a>, <a class="company-link" href="https://www.owledmedia.com/">owled</a></p>
+        <h2>Previously</h2>
+        <p><a href="https://wingify.com/" class="link">Wingify</a>, <a href="https://nintee.com/" class="link">Nintee</a>, <a href="https://www.dezerv.in/" class="link">Dezerv</a>, <a href="https://seekify.com/" class="link">Seekify</a>, <a href="https://www.segmind.com/" class="link">Segmind</a>, <a href="https://www.owledmedia.com/" class="link">Owled</a></p>
 
-        <h2 class="italic">a little story:</h2>
-        <p>i started writing online over 3 years ago and have been fortunate enough to work with some exceptional founders like ayush wadhwa, paras chopra, saumya saxena, and many more.</p>
+        <h2 class="italic">A little story:</h2>
+        <p>I started writing online over 3 years ago and have been fortunate enough to work with some exceptional founders like Ayush Wadhwa, Paras Chopra, Saumya Saxena, and many more.</p>
 
-        <h2 id="quests">quests</h2>
+        <h2 id="quests">Quests</h2>
         <div class="toggle-container">
-            <button class="toggle-btn active" data-target="main-quests">main quests</button>
-            <button class="toggle-btn" data-target="side-quests">side quests</button>
+            <button class="toggle-btn active" data-target="main-quests">Main Quests</button>
+            <button class="toggle-btn" data-target="side-quests">Side Quests</button>
         </div>
 
         <div id="main-quests" class="quest-section active">
             <div class="year">2024</div>
             <div class="project">
-                <div class="project-title">socials <a class="company-link" href="https://flexiple.com">@flexiple</a></div>
-                <p>writing content for founder accounts and scriptwriting for videos</p>
+                <div class="project-title">Socials <a href="https://flexiple.com" class="link">@Flexiple</a></div>
+                <p>Writing content for founder accounts and scriptwriting for videos.</p>
             </div>
 
             <div class="year">2023</div>
             <div class="project">
-                <div class="project-title">marketing & growth <a class="company-link" href="https://purplepay.app">@purplepay</a></div>
-                <p>only marketer in a team of 12, solving for cross-border payments with crypto</p>
+                <div class="project-title">Marketing & Growth <a href="https://purplepay.app" class="link">@PurplePay</a></div>
+                <p>Only marketer in a team of 12, solving for cross-border payments with crypto.</p>
             </div>
             <div class="project">
-                <div class="project-title">content writer <a class="company-link" href="https://www.dezerv.in/">@dezerv</a></div>
-                <p>wrote 60+ seo-optimized blogs for a $100M+ wealth management firm</p>
+                <div class="project-title">Content Writer <a href="https://www.dezerv.in/" class="link">@Dezerv</a></div>
+                <p>Wrote 60+ SEO-optimized blogs for a $100M+ wealth management firm.</p>
             </div>
             <div class="project">
-                <div class="project-title">marketing <a class="company-link" href="https://nintee.com/">@nintee</a> (parent company - <a class="company-link" href="https://wingify.com/">wingify</a>)</div>
-                <p>worked on a personal development and habit AI coach</p>
-                <p class="italic">(one of the greatest experiences for me as i got introduced to genAI here)</p>
+                <div class="project-title">Marketing <a href="https://nintee.com/" class="link">@Nintee</a> (parent company - <a href="https://wingify.com/" class="link">Wingify</a>)</div>
+                <p>Worked on a personal development and habit AI coach.</p>
+                <p class="italic">(One of the greatest experiences for me as I got introduced to genAI here)</p>
             </div>
 
             <div class="year">2022</div>
             <div class="project">
-                <div class="project-title">marketing <a class="company-link" href="https://www.owledmedia.com/">@owled</a></div>
-                <p>youtube channel management, newsletter writing, short-form distribution execution for various clients</p>
-                <p class="italic">(huge for me personally as everything i learned in marketing started here)</p>
+                <div class="project-title">Marketing <a href="https://www.owledmedia.com/" class="link">@Owled</a></div>
+                <p>YouTube channel management, newsletter writing, short-form distribution execution for various clients.</p>
+                <p class="italic">(Huge for me personally as everything I learned in marketing started here)</p>
             </div>
         </div>
 
         <div id="side-quests" class="quest-section">
             <div class="year">2024</div>
             <div class="project">
-                <div class="project-title">AI tweet generator</div>
-                <p>helping people with great thoughts write tweets easily with templates and inspiration</p>
+                <div class="project-title">AI Tweet Generator</div>
+                <p>Helping people with great thoughts write tweets easily with templates and inspiration.</p>
             </div>
             <div class="project">
-                <div class="project-title"><a class="company-link" href="https://jimbro.framer.ai/">jimbro</a></div>
-                <p>building the easiest way to log workouts and get better at sports</p>
+                <div class="project-title"><a href="https://jimbro.framer.ai/" class="link">JimBro</a></div>
+                <p>Building the easiest way to log workouts and get better at sports.</p>
             </div>
             <div class="project">
-                <div class="project-title"><a class="company-link" href="https://www.instagram.com/builders.central/">zoho creator</a></div>
-                <p>consulting for zoho creator via YaaS media; wrote over 200+ short-form scripts</p>
+                <div class="project-title">Zoho Creator</div>
+                <p>Consulting for Zoho Creator via <a href="https://www.instagram.com/builders.central/" class="link">YaaS Media</a>; wrote over 200+ short-form scripts.</p>
             </div>
             <div class="project">
-                <div class="project-title"><a class="company-link" href="https://www.dacoit.design/">dacoit design</a></div>
-                <p>wrote a once-a-year year-in-review for <a href="https://x.com/RahulDesignWeb3">rahul</a>, founder of dacoit design</p>
+                <div class="project-title"><a href="https://www.dacoit.design/" class="link">Dacoit Design</a></div>
+                <p>Wrote a once-a-year year-in-review for <a href="https://x.com/RahulDesignWeb3" class="link">Rahul</a>, founder of Dacoit Design.</p>
             </div>
             <div class="project">
-                <div class="project-title"><a class="company-link" href="https://0xfbi.com/">fbi</a></div>
-                <p>on-and-off partnership with farcaster builders international for organizing hackathons, meetups, etc.</p>
+                <div class="project-title"><a href="https://0xfbi.com/" class="link">FBI</a></div>
+                <p>On-and-off partnership with Farcaster Builders International for organizing hackathons, meetups, etc.</p>
             </div>
 
             <div class="year">2023</div>
             <div class="project">
-                <div class="project-title"><a class="company-link" href="https://www.logx.trade/">logx</a></div>
-                <p>wrote multiple twitter threads covering crypto trading and ecosystems logX explored for integration</p>
+                <div class="project-title"><a href="https://www.logx.trade/" class="link">LogX</a></div>
+                <p>Wrote multiple Twitter threads covering crypto trading and ecosystems LogX explored for integration.</p>
             </div>
             <div class="project">
-                <div class="project-title"><a class="company-link" href="https://x.com/FlowwMedia">floww media</a></div>
-                <p>a services business started with 2 of my brothers to make thumbnails for youtubers - got some clients from india, korea, and the states - then shut it down.</p>
+                <div class="project-title"><a href="https://x.com/FlowwMedia" class="link">Floww Media</a></div>
+                <p>A services business started with 2 of my brothers to make thumbnails for YouTubers - got some clients from India, Korea, and the States - then shut it down.</p>
             </div>
 
             <div class="year">2022</div>
             <div class="project">
-                <div class="project-title"><a class="company-link" href="https://seekify.com/">seekify</a></div>
-                <p>interned to write social media posts</p>
+                <div class="project-title"><a href="https://seekify.com/" class="link">Seekify</a></div>
+                <p>Interned to write social media posts.</p>
             </div>
             <div class="project">
-                <div class="project-title"><a class="company-link" href="https://www.segmind.com/">segmind</a></div>
-                <p>worked as a sales and marketing rep—explored how B2B saas works</p>
+                <div class="project-title"><a href="https://www.segmind.com/" class="link">Segmind</a></div>
+                <p>Worked as a sales and marketing rep—explored how B2B SaaS works.</p>
             </div>
             <div class="project">
-                <div class="project-title"><a class="company-link" href="https://x.com/podcastdecoded_">podcast decoded</a></div>
-                <p>we (me and my brother) listened to podcasts and shared notes - so you don't have to.</p>
+                <div class="project-title"><a href="https://x.com/podcastdecoded_" class="link">Podcast Decoded</a></div>
+                <p>We (me and my brother) listened to podcasts and shared notes - so you don't have to.</p>
             </div>
         </div>
 
-        <h2 id="writing">writing</h2>
+        <h2 id="writing">Writing</h2>
         <div class="writing">
-            <h3><a class="company-link" href="https://tushaarmehtaa.bearblog.dev/your-day-job/">Your Day Job is Useless</a></h3>
+            <h3><a href="https://tushaarmehtaa.bearblog.dev/your-day-job/" class="link">Your Day Job is Useless</a></h3>
             <p>"I'm just doing this to learn, then I'm going to start my own thing."</p>
         </div>
         <div class="writing">
-            <h3><a class="company-link" href="https://tushaarmehtaa.bearblog.dev/making-great-things/">Make Laziness Enablers</a></h3>
+            <h3><a href="https://tushaarmehtaa.bearblog.dev/making-great-things/" class="link">Make Laziness Enablers</a></h3>
             <p>I'm obsessed with laziness right now. Not my own (though my family might disagree)...</p>
         </div>
         <div class="writing">
-            <h3><a class="company-link" href="https://tushaarmehtaa.bearblog.dev/people-on-twitter/">People on Twitter</a></h3>
+            <h3><a href="https://tushaarmehtaa.bearblog.dev/people-on-twitter/" class="link">People on Twitter</a></h3>
             <p>People on Twitter. They don't appreciate actionable advice. They don't value the small, daily steps they can take to reach their goals...</p>
         </div>
         <div class="writing">
-            <h3><a class="company-link" href="https://tushaarmehtaa.bearblog.dev/specialization-is-overrated/">Specialization is overrated</a></h3>
+            <h3><a href="https://tushaarmehtaa.bearblog.dev/specialization-is-overrated/" class="link">Specialization is overrated</a></h3>
             <p>"Specialization is for insects." When I first read this quote by Naval 3 years back, it really resonated with me...</p>
         </div>
-        <p><a class="company-link" href="https://tushaarmehtaa.bearblog.dev/blog/">read more here</a></p>
+        <p><a href="https://tushaarmehtaa.bearblog.dev/blog/" class="link">Read more here</a></p>
     </main>
 
-    <div id="contact" class="project">
-        <p>Feel free to reach out for collaborations, questions, or just to say hi!</p>
-        <div class="social-links">
-            <a href="mailto:tusharmehta2001@icloud.com" title="Email"><img src="https://cdn-icons-png.flaticon.com/512/561/561188.png" alt="Email"></a>
-            <a href="#" title="GitHub"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub"></a>
-            <a href="#" title="Twitter"><img src="https://abs.twimg.com/icons/apple-touch-icon-192x192.png" alt="Twitter"></a>
-        </div>
+<footer id="contact">
+    <div class="contact-item">
+        <h3>Contact</h3>
+        <p>Feel free to reach out for collaborations or just a chat!</p>
     </div>
+    <div class="social-links">
+        <a href="https://github.com/yourusername" title="GitHub">🐙</a>
+        <a href="https://twitter.com/yourusername" title="Twitter">🐦</a>
+        <a href="mailto:tusharmehta2001@icloud.com" title="Email">✉️</a>
+    </div>
+    <p>© 2024 Tushaar Mehtaa. All rights reserved.</p>
+</footer>
 
-    <footer>
-        <p>© 2024 Tushaar Mehtaa</p>
-    </footer>
+<script>
+    const toggleBtns = document.querySelectorAll('.toggle-btn');
+    const questSections = document.querySelectorAll('.quest-section');
 
-    <script>
-        const toggleBtns = document.querySelectorAll('.toggle-btn');
-        const questSections = document.querySelectorAll('.quest-section');
+    toggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.dataset.target;
 
-        toggleBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const target = btn.dataset.target;
+            toggleBtns.forEach(b => b.classList.remove('active'));
+            questSections.forEach(s => s.classList.remove('active'));
 
-                toggleBtns.forEach(b => b.classList.remove('active'));
-                questSections.forEach(s => s.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById(target).classList.add('active');
+        });
+    });
 
-                btn.classList.add('active');
-                document.getElementById(target).classList.add('active');
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
             });
         });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+    });
+</script>
