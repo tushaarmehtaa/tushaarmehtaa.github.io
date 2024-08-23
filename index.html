@@ -3,211 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tushaar Mehtaa - Personal Website</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Tushaar Mehtaa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #1a1a1a;
-            --text-color: #e0e0e0;
-            --link-color: #4a9eff;
-            --heading-color: #ffffff;
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --secondary-text-color: #666666;
+            --link-color: #0000FF;
+            --link-hover-color: #0000AA;
         }
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Roboto Mono', monospace;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--bg-color);
-            margin: 0;
-            padding: 20px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .container {
-            max-width: 800px;
+            max-width: 650px;
             margin: 0 auto;
+            padding: 20px;
+            font-size: 14px;
         }
-        .light-mode {
-            --bg-color: #f5f5f5;
-            --text-color: #333333;
-            --link-color: #0066cc;
-            --heading-color: #1a1a1a;
+        nav {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 40px;
         }
-        h1, h2, h3 {
-            color: var(--heading-color);
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        nav a:hover {
+            color: var(--link-hover-color);
+        }
+        h1 {
+            font-size: 24px;
             font-weight: 700;
+            margin-bottom: 10px;
         }
-        h1, h2 {
-            border-bottom: 1px solid var(--heading-color);
-            padding-bottom: 10px;
+        h2 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 20px;
         }
         .project, .writing {
             margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 2px solid var(--secondary-text-color);
         }
-        .connect-icons {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
+        .project h3, .writing h3 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 5px;
         }
-        .connect-icons a {
-            text-decoration: none;
-            color: var(--link-color);
-            font-size: 24px;
-            transition: transform 0.3s;
-        }
-        .connect-icons a:hover {
-            transform: scale(1.1);
-        }
-        #profile-photo {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            display: block;
-            margin: 20px auto;
-            object-fit: cover;
-            aspect-ratio: 16 / 9;
-        }
-        #theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: var(--text-color);
-            transition: opacity 0.3s;
-            z-index: 1000;
+        footer {
+            margin-top: 60px;
+            font-size: 12px;
+            color: var(--secondary-text-color);
         }
         a {
             color: var(--link-color);
             text-decoration: none;
-            border-bottom: 1px solid var(--link-color);
-            font-weight: 500;
         }
         a:hover {
-            opacity: 0.8;
+            text-decoration: underline;
         }
-        .project h3 a, .writing h3 a {
-            color: var(--link-color);
-            border-bottom: none;
+        .toggle-container {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 20px;
+        }
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 20px;
+            padding: 0;
+            font-family: 'Roboto Mono', monospace;
+        }
+        .toggle-btn.active {
             font-weight: 700;
         }
-        .project h3 a:hover, .writing h3 a:hover {
-            border-bottom: 1px solid var(--link-color);
+        .quest-section {
+            display: none;
         }
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-            .connect-icons {
-                flex-wrap: wrap;
-            }
-            .connect-icons a {
-                margin: 10px;
-            }
+        .quest-section.active {
+            display: block;
+        }
+        .year {
+            color: var(--secondary-text-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .social-links {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 20px;
+        }
+        .social-links a {
+            margin-right: 20px;
+        }
+        .social-links img {
+            width: 20px;
+            height: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            margin-bottom: 20px;
+        }
+        .project-title {
+            font-weight: 700;
+        }
+        .project-link {
+            color: var(--secondary-text-color);
+            font-size: 12px;
+        }
+        .italic {
+            font-style: italic;
+        }
+        #profile-photo {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
-    <button id="theme-toggle">☀️</button>
+    <nav>
+        <a href="#home">home</a>
+        <a href="#quests">quests</a>
+        <a href="#writing">writing</a>
+        <a href="#contact">contact</a>
+    </nav>
 
-    <div class="container">
-        <header>
-            <h1>Tushaar Mehtaa</h1>
-            <img id="profile-photo" src="https://raw.githubusercontent.com/tushaarmehtaa/tushaarmehtaa/b0bbf06c86c8ca7f440084e620aa191ea48f5021/IMG%208532%202.jpg" alt="Tushaar Mehtaa">
-            <p>hello hello, this is tushaar, and welcome to my corner of the internet.</p>
-            <p>here, you'll find almost everything about me—things i've done, things i'm doing, things i want to do, and things i'm really excited about.</p>
-        </header>
+    <main id="home">
+        <h1>tushaar mehtaa</h1>
+        <img id="profile-photo" src="https://raw.githubusercontent.com/tushaarmehtaa/tushaarmehtaa/b0bbf06c86c8ca7f440084e620aa191ea48f5021/IMG%208532%202.jpg" alt="Tushaar Mehtaa">
+        <p>hello hello, this is tushaar, and welcome to my corner of the internet.</p>
 
-        <section id="about">
-            <h2>about me</h2>
-            <ul>
-                <li>i'm a 23-year-old self-taught writer and marketer living in bangalore. never really went to college, but i do have a bba degree for the records.</li>
-                <li>i started writing online over 3 years ago and have been fortunate enough to work with some exceptional founders like <a href="https://x.com/AyushkWadhwa">ayush wadhwa</a>, <a href="https://x.com/paraschopra">paras chopra</a>, <a href="https://x.com/Saxenasaheb">saumya saxena</a>, and many more.</li>
-                <li>usually, i focus on making sure whatever i write generates revenue, but in marketing, people often talk about impressions—so, speaking of numbers, i've achieved millions of impressions across platforms and content types, whether <a href="https://www.instagram.com/builders.central/">reels</a>, <a href="https://x.com/tushaarmehtaa/status/1765270035721822483">tweets</a>, or <a href="https://www.linkedin.com/posts/karthiksridharan1_startup-activity-7212686224094810112-fMZP?utm_source=share&utm_medium=member_desktop">posts</a>.</li>
-                <li>currently, i'm really excited, fascinated, and honestly feeling a bit dumb about generative ai and how it can help ship things faster, giving humans more time to do fulfilling work.</li>
-            </ul>
-        </section>
+        <h2>now</h2>
+        <p>writing content for brands and entrepreneurs, exploring generative ai</p>
 
-        <section id="projects">
-            <h2>projects</h2>
+        <h2>previously</h2>
+        <p><a href="https://wingify.com/">wingify</a>, <a href="https://nintee.com/">nintee</a>, <a href="https://www.dezerv.in/">dezerv</a>, <a href="https://seekify.com/">seekify</a>, <a href="https://www.segmind.com/">segmind</a>, <a href="https://www.owledmedia.com/">owled</a></p>
+
+        <h2 class="italic">a little story:</h2>
+        <p>i started writing online over 3 years ago and have been fortunate enough to work with some exceptional founders like ayush wadhwa, paras chopra, saumya saxena, and many more.</p>
+
+        <h2 id="quests">quests</h2>
+        <div class="toggle-container">
+            <button class="toggle-btn active" data-target="main-quests">main quests</button>
+            <button class="toggle-btn" data-target="side-quests">side quests</button>
+        </div>
+
+        <div id="main-quests" class="quest-section active">
+            <div class="year">2024</div>
             <div class="project">
-                <h3><a href="https://jimbro.framer.ai/">jimbro</a></h3>
-                <p>name sounds funny, but i'm trying to make it easier than ever to log workouts using voice and ai.</p>
+                <div class="project-title"><a href="https://flexiple.com">socials @flexiple</a></div>
+                <p>writing content for founder accounts and scriptwriting for videos</p>
+            </div>
+
+            <div class="year">2023</div>
+            <div class="project">
+                <div class="project-title"><a href="https://purplepay.app">marketing & growth @purplepay</a></div>
+                <p>only marketer in a team of 12, solving for cross-border payments with crypto</p>
             </div>
             <div class="project">
-                <h3>internal tools-as-a-service</h3>
-                <p>think dashboard, think smallest gpt wrappers that allow most mundane tasks to be handled by technology rather than humans, building for internal corporate use.</p>
+                <div class="project-title"><a href="https://www.dezerv.in/">content writer @dezerv</a></div>
+                <p>wrote 60+ seo-optimized blogs for a $100M+ wealth management firm</p>
             </div>
             <div class="project">
-                <h3><a href="https://x.com/podcastdecoded_">podcast decoded</a></h3>
-                <p>we listened to podcasts and shared notes - so you don't have to.</p>
+                <div class="project-title"><a href="https://nintee.com/">marketing @nintee</a> (parent company - <a href="https://wingify.com/">wingify</a>)</div>
+                <p>worked on a personal development and habit AI coach</p>
+                <p class="italic">(one of the greatest experiences for me as i got introduced to genAI here)</p>
+            </div>
+
+            <div class="year">2022</div>
+            <div class="project">
+                <div class="project-title"><a href="https://www.owledmedia.com/">marketing @owled</a></div>
+                <p>youtube channel management, newsletter writing, short-form distribution execution for various clients</p>
+                <p class="italic">(huge for me personally as everything i learned in marketing started here)</p>
+            </div>
+        </div>
+
+        <div id="side-quests" class="quest-section">
+            <div class="year">2024</div>
+            <div class="project">
+                <div class="project-title">AI tweet generator</div>
+                <p>helping people with great thoughts write tweets easily with templates and inspiration</p>
             </div>
             <div class="project">
-                <h3><a href="https://x.com/FlowwMedia">floww media</a></h3>
-                <p>a services business to make thumbnails for youtubers - got some clients from india, korea, and the states - couldn't keep it going with a job.</p>
+                <div class="project-title"><a href="https://jimbro.framer.ai/">jimbro</a></div>
+                <p>building the easiest way to log workouts and get better at sports</p>
             </div>
-        </section>
+            <div class="project">
+                <div class="project-title">zoho creator</div>
+                <p>consulting for zoho creator via YaaS media; wrote over 200+ short-form scripts</p>
+            </div>
+            <div class="project">
+                <div class="project-title"><a href="https://www.dacoit.design/">dacoit design</a></div>
+                <p>wrote a once-a-year year-in-review for <a href="https://x.com/RahulDesignWeb3">rahul</a>, founder of dacoit design</p>
+            </div>
+            <div class="project">
+                <div class="project-title">fbi</div>
+                <p>on-and-off partnership with farcaster builders international for organizing hackathons, meetups, etc.</p>
+            </div>
 
-        <section id="writings">
-            <h2>writings</h2>
-            <div class="writing">
-                <h3><a href="https://tushaarmehtaa.bearblog.dev/your-day-job/">your day job is useless</a></h3>
-                <p>"i'm just doing this to learn, then i'm going to start my own thing."</p>
+            <div class="year">2023</div>
+            <div class="project">
+                <div class="project-title">logx</div>
+                <p>wrote multiple twitter threads covering crypto trading and ecosystems logX explored for integration</p>
             </div>
-            <div class="writing">
-                <h3><a href="https://tushaarmehtaa.bearblog.dev/making-great-things/">make laziness enablers</a></h3>
-                <p>i'm obsessed with laziness right now. not my own (though my family might disagree)...</p>
+            <div class="project">
+                <div class="project-title">floww media</div>
+                <p>a services business started with 2 of my brothers to make thumbnails for youtubers - got some clients from india, korea, and the states - then shut it down.</p>
             </div>
-            <div class="writing">
-                <h3><a href="https://tushaarmehtaa.bearblog.dev/people-on-twitter/">people on twitter</a></h3>
-                <p>people on twitter. they don't appreciate actionable advice. they don't value the small, daily steps they can take to reach their goals...</p>
-            </div>
-            <div class="writing">
-                <h3><a href="https://tushaarmehtaa.bearblog.dev/specialization-is-overrated/">specialization is overrated</a></h3>
-                <p>"specialization is for insects." when i first read this quote by naval 3 years back, it really resonated with me...</p>
-            </div>
-            <p><a href="https://tushaarmehtaa.bearblog.dev/blog/">read more here</a></p>
-        </section>
 
-        <section id="connect">
-            <h2>connect</h2>
-            <div class="connect-icons">
-                <a href="mailto:tusharmehta2001@icloud.com" title="Email">✉️</a>
-                <a href="https://x.com/tushaarmehtaa" title="Twitter">🐦</a>
-                <a href="#" title="LinkedIn">💼</a>
-                <a href="#" title="Portfolio">🌐</a>
-                <a href="#" title="Calendly">📅</a>
-                <a href="https://github.com/tushaarmehtaa" title="GitHub">👨‍💻</a>
+            <div class="year">2022</div>
+            <div class="project">
+                <div class="project-title"><a href="https://seekify.com/">seekify</a></div>
+                <p>interned to write social media posts</p>
             </div>
-        </section>
+            <div class="project">
+                <div class="project-title"><a href="https://www.segmind.com/">segmind</a></div>
+                <p>worked as a sales and marketing rep—explored how B2B saas works</p>
+            </div>
+            <div class="project">
+                <div class="project-title">podcast decoded</div>
+                <p>we (me and my brother) listened to podcasts and shared notes - so you don't have to.</p>
+            </div>
+        </div>
 
-        <footer>
-            <p>© 2024 Tushaar Mehtaa. All rights reserved.</p>
-        </footer>
-    </div>
+        <h2 id="writing">writing</h2>
+        <div class="writing">
+            <h3><a href="#">Your Day Job is Useless</a></h3>
+            <p>"I'm just doing this to learn, then I'm going to start my own thing."</p>
+        </div>
+        <div class="writing">
+            <h3><a href="#">Make Laziness Enablers</a></h3>
+            <p>I'm obsessed with laziness right now. Not my own (though my family might disagree)...</p>
+        </div>
+        <div class="writing">
+            <h3><a href="#">People on Twitter</a></h3>
+            <p>People on Twitter. They don't appreciate actionable advice. They don't value the small, daily steps they can take to reach their goals...</p>
+        </div>
+        <div class="writing">
+            <h3><a href="#">Specialization is overrated</a></h3>
+            <p>"Specialization is for insects." When I first read this quote by Naval 3 years back, it really resonated with me...</p>
+        </div>
+        <p><a href="https://tushaarmehtaa.bearblog.dev/blog/">read more here</a></p>
+    </main>
+
+    <footer id="contact">
+        <p>© 2024 Tushaar Mehtaa</p>
+        <div class="social-links">
+            <a href="https://github.com/tushaarmehtaa/" title="GitHub"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub"></a>
+            <a href="https://x.com/tushaarmehtaa" title="Twitter"><img src="https://abs.twimg.com/icons/apple-touch-icon-192x192.png" alt="Twitter"></a>
+            <a href="#" title="LinkedIn"><img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" alt="LinkedIn"></a>
+        </div>
+    </footer>
 
     <script>
-        const themeToggle = document.getElementById('theme-toggle');
-        const body = document.body;
-        const daysSinceBirthday = document.getElementById('days-since-birthday');
+        const toggleBtns = document.querySelectorAll('.toggle-btn');
+        const questSections = document.querySelectorAll('.quest-section');
 
-        // Theme toggle
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('light-mode');
-            themeToggle.textContent = body.classList.contains('light-mode') ? '🌙' : '☀️';
+        toggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.dataset.target;
+
+                toggleBtns.forEach(b => b.classList.remove('active'));
+                questSections.forEach(s => s.classList.remove('active'));
+
+                btn.classList.add('active');
+                document.getElementById(target).classList.add('active');
+            });
         });
-
-        // Calculate days since birthday
-        function updateDaysSinceBirthday() {
-            const birthday = new Date('2000-07-28'); // Your birthday (July 28)
-            const today = new Date();
-            const lastBirthday = new Date(today.getFullYear(), birthday.getMonth(), birthday.getDate());
-            if (lastBirthday > today) {
-                lastBirthday.setFullYear(lastBirthday.getFullYear() - 1);
-            }
-            const days = Math.floor((today - lastBirthday) / (1000 * 60 * 60 * 24));
-            daysSinceBirthday.textContent = days;
-        }
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -218,22 +298,6 @@
                 });
             });
         });
-
-        // Hide theme toggle on scroll
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (scrollTop > lastScrollTop) {
-                themeToggle.style.opacity = '0';
-            } else {
-                themeToggle.style.opacity = '1';
-            }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-        }, false);
-
-        // Initialize
-        updateDaysSinceBirthday();
-        setInterval(updateDaysSinceBirthday, 86400000); // Update days since birthday daily
     </script>
 </body>
 </html>
