@@ -24,11 +24,25 @@
             margin: 0 auto;
             padding: 20px;
             font-size: 16px;
+            padding-top: 80px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--bg-color);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
         }
         nav {
             display: flex;
-            justify-content: flex-start;
-            margin-bottom: 40px;
         }
         nav a {
             color: var(--text-color);
@@ -117,10 +131,7 @@
         }
         .social-links a {
             margin-right: 20px;
-        }
-        .social-links img {
-            width: 20px;
-            height: 20px;
+            font-size: 24px;
         }
         ul {
             list-style-type: none;
@@ -145,37 +156,95 @@
             object-fit: cover;
             margin-bottom: 20px;
         }
-        #main-quests:hover, #side-quests:hover {
-            cursor: pointer;
-        }
         #main-quests:hover {
             cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>✨</text></svg>") 16 0, auto;
         }
         #side-quests:hover {
             cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🪄</text></svg>") 16 0, auto;
         }
-      
-      
-.social-links {
+        .theme-switch-wrapper {
     display: flex;
-    justify-content: flex-start;
-    margin-top: 20px;
+    align-items: center;
+}
+#theme-toggle {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+#theme-toggle:hover {
+    color: var(--link-color);
+}
+#theme-toggle svg {
+    width: 24px;
+    height: 24px;
+}
+body.dark-theme #theme-toggle svg {
+    transform: rotate(180deg);
 }
 
-.social-links a {
-    margin-right: 20px;
-    font-size: 24px;
-    text-decoration: none;
-}
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+            border-radius: 34px;
+        }
+        .slider:before {
+            background-color: #fff;
+            bottom: 4px;
+            content: "☀️";
+            height: 26px;
+            left: 4px;
+            position: absolute;
+            transition: .4s;
+            width: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+            content: "🌙";
+        }
+        body.dark-theme {
+            --bg-color: #333333;
+            --text-color: #f5f5f5;
+            --secondary-text-color: #cccccc;
+            --link-color: #4a9eff;
+            --link-hover-color: #7ab8ff;
+            --border-color: #666666;
+            --border-hover-color: #999999;
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#quests">Quests</a>
-        <a href="#writing">Writing</a>
-        <a href="#contact">Contact</a>
-    </nav>
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#quests">Quests</a>
+            <a href="#writing">Writing</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <div class="theme-switch-wrapper">
+            <button id="theme-toggle" aria-label="Toggle dark mode">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
 
     <main id="home">
         <h1>Tushaar Mehtaa</h1>
@@ -238,7 +307,7 @@
                 <p>Building the easiest way to log workouts and get better at sports.</p>
             </div>
             <div class="project">
-                <div class="project-title">Zoho Creator</div>
+                <div class="project-title"><a href="https://www.zoho.com/creator/" class="link">Zoho Creator</a></div>
                 <p>Consulting for Zoho Creator via <a href="https://www.instagram.com/builders.central/" class="link">YaaS Media</a>; wrote over 200+ short-form scripts.</p>
             </div>
             <div class="project">
@@ -275,7 +344,9 @@
             </div>
         </div>
 
-        <h2 id="writing">Writing</h2>
+        <h2 id="writing">
+          
+          <h2 id="writing">Writing</h2>
         <div class="writing">
             <h3><a href="https://tushaarmehtaa.bearblog.dev/your-day-job/" class="link">Your Day Job is Useless</a></h3>
             <p>"I'm just doing this to learn, then I'm going to start my own thing."</p>
@@ -295,42 +366,53 @@
         <p><a href="https://tushaarmehtaa.bearblog.dev/blog/" class="link">Read more here</a></p>
     </main>
 
-<footer id="contact">
-    <div class="contact-item">
-        <h3>Contact</h3>
-        <p>Feel free to reach out for collaborations or just a chat!</p>
-    </div>
-    <div class="social-links">
-        <a href="https://github.com/yourusername" title="GitHub">🐙</a>
-        <a href="https://twitter.com/yourusername" title="Twitter">🐦</a>
-        <a href="mailto:tusharmehta2001@icloud.com" title="Email">✉️</a>
-    </div>
-    <p>© 2024 Tushaar Mehtaa. All rights reserved.</p>
-</footer>
+    <footer id="contact">
+        <div class="contact-item">
+            <h3>Contact</h3>
+            <p>Feel free to reach out for collaborations or just a chat!</p>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/yourusername" title="GitHub">🐙</a>
+            <a href="https://twitter.com/yourusername" title="Twitter">🐦</a>
+            <a href="mailto:tusharmehta2001@icloud.com" title="Email">✉️</a>
+        </div>
+        <p>© 2024 Tushaar Mehtaa. All rights reserved.</p>
+    </footer>
 
-<script>
-    const toggleBtns = document.querySelectorAll('.toggle-btn');
-    const questSections = document.querySelectorAll('.quest-section');
+    <script>
+        const toggleBtns = document.querySelectorAll('.toggle-btn');
+        const questSections = document.querySelectorAll('.quest-section');
 
-    toggleBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const target = btn.dataset.target;
+        toggleBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.dataset.target;
 
-            toggleBtns.forEach(b => b.classList.remove('active'));
-            questSections.forEach(s => s.classList.remove('active'));
+                toggleBtns.forEach(b => b.classList.remove('active'));
+                questSections.forEach(s => s.classList.remove('active'));
 
-            btn.classList.add('active');
-            document.getElementById(target).classList.add('active');
-        });
-    });
-
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
+                btn.classList.add('active');
+                document.getElementById(target).classList.add('active');
             });
         });
-    });
-</script>
+
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+
+function toggleTheme() {
+    document.body.classList.toggle('dark-theme');
+}
+
+themeToggle.addEventListener('click', toggleTheme);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
